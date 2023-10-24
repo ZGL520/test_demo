@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   flex: 1;
+  padding-right: 50px;
 }
 
 .page_left_bottom_box {
