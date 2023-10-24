@@ -4,8 +4,8 @@ import TextInput from "../widget/textInput";
 import axios from "axios";
 
 const data = [
-  { "name": "Email", "label": "Email", "value": "", "icon": "" },
-  { "name": "Password", "label": "Password", "value": "", "icon": "" },
+  { "name": "Email", "label": "Email", "value": "", "icon": "", "placeholder": "Enter your email" },
+  { "name": "Password", "label": "Password", "value": "", "icon": "", "placeholder": "Enter your password" },
 ]
 
 export default class PageRight extends React.Component {
@@ -28,6 +28,10 @@ export default class PageRight extends React.Component {
     let name = this.state.data.filter((e) => e.name === 'Email')[0]?.value;
     let password = this.state.data.filter((e) => e.name === 'Password')[0]?.value;
     let data = { 'name': name, 'password': password }
+    if (!name || !password) {
+      alert('Email or password is empty');
+      return;
+    }
     try {
       const res = await axios.post('https://clare1.ngrok.io/api/v1/login', data);
       this.gotoHome(res.data.msg);
@@ -52,7 +56,7 @@ export default class PageRight extends React.Component {
   render() {
     return (
       <div className="page_right_box">
-        <div>Logo</div>
+        <div className="page_right_logo">Logo</div>
         <div>
           {
             this.state.data.map((item, index) => {
@@ -63,7 +67,7 @@ export default class PageRight extends React.Component {
             })
           }
         </div>
-        <div>
+        <div className="checkbox_box">
           <div>
             <input type="checkbox" onChange={(e) => {
               console.log(e);
@@ -71,11 +75,11 @@ export default class PageRight extends React.Component {
             <span>Remember me</span>
           </div>
           <div>
-            <span>Forgot password?</span>
+            <a href="" >Forgot password?</a>
           </div>
 
         </div>
-        <div>
+        <div className="login_btn">
           <button onClick={this.getData}>Login</button>
         </div>
       </div>);

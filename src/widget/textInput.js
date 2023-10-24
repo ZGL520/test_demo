@@ -7,7 +7,8 @@ export default function (props, item) {
         props.item.value = e.target.value;
         props.onChange(props.item);
       }
-      } />
+
+      } placeholder={props.item.placeholder} />
     </div>
   );
 }

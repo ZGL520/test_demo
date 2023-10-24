@@ -1,4 +1,30 @@
+.page_right_logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: green;
+  margin-bottom: 20px;
+
+}
+
 .input_box_name {
-  padding: 8px 0px 8px 0px;
+  padding: 0px;
   margin: 0px;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.input_box>input {
+  border-style: none;
+  padding: 8px;
+  width: 100%;
+  height: 50px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 5px #808080;
+  overflow: hidden;
+}
+
+.input_box {
+  margin-top: 10px;
 }
